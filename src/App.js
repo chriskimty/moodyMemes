@@ -2,6 +2,7 @@ import "./styles/styles.scss";
 import { Route, Routes } from "react-router-dom"
 
 // Import components for Routing
+import Login from "./components/Login";
 import Welcome from './components/Welcome';
 import Footer from './components/Footer';
 import LandingPage from "./components/LandingPage";
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        {/* <Route path="/Login" element={<Login/>} /> */}
         <Route path="/" element= {<Welcome />} />
         <Route path="/Home" element={<LandingPage />} /> 
         <Route path="/MeetTheDevs" element={<MeetTheDevs />} />
