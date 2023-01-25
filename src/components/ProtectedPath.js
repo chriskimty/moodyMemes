@@ -7,8 +7,7 @@ const ProtectedPath = ({ children }) => {
 	let { user } = useUserAuth();
 	//if user isnt logged it, will return to the page of login
     if (!user) {
-        // change navigation to the component that stores login and signup (haven't created at this point)
-		return <Navigate to='/' />;
+		return <Navigate to='/login' />;
 	} else {
 		//would return to homepage
 		return children;

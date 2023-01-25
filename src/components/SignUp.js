@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/UserAuth";
 
-
+// figure out how to add username as param? 
 const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -42,9 +42,9 @@ const SignUp = () => {
 
             {error && <p>{error}</p>}
             <p>Already have an account?</p>
-            <Link to ='/login' className="button">Log In Here</Link>
+            <Link to='/login' className="button">Log In Here</Link>
             <p>or</p>
-            <Link to ='/home' className="button">Proceed as anonymous user</Link>
+            <Link to='/home' className="button">Proceed as anonymous user</Link>
         </div>
     )
 }
