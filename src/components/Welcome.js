@@ -1,14 +1,11 @@
-// import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo2 from "../assets/moodyMemesLogoHorizontal.png"
-import Login from "./Login";
 
 const Welcome = () => {
-
-  const [isClicked, setIsClicked] = useState(false);
+  const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
-    setIsClicked(true);
+    navigate('/login');
   }
 
     return (
@@ -17,9 +14,7 @@ const Welcome = () => {
           <h1><span className="visuallyHidden">moody memes</span></h1>
           <img className="logo" src={logo2} alt="" />
           <h2>Express your mood <span>in a meme✨</span></h2>
-          {/* <Link to="/home" className="button">Get Started</Link> */}
           <button onClick={handleClick} className="button">Get Started</button>
-          {isClicked ? <Login/> : null}
         </div>
       </section>
     )
