@@ -1,35 +1,25 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import GoogleButton from "react-google-button";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/UserAuth";
 
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const auth = getAuth();
+    const [error, setError] = useState("");
     const navigate = useNavigate();
+    const { signUp, logIn } = useAuth();
 
-    const signUp = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            // Signed in 
-              const user = userCredential.user;
-              console.log(user);
-              alert("Successfully created an account")
-              // this 'home' should be user's home that shows login status
-              navigate('/Home')
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-              alert(errorCode);
-          });
-    }
-
-    const handleSubmit = (e) => {
+    async function handleSubmit(e){
         e.preventDefault();
-        signUp();
-        console.log('ahah')
+        try {
+			await signUp(email, password);
+		} catch(error) {
+			setError(error.message);
+        } finally {
+            await logIn(email, password);
+            navigate('/Home');
+        }
     }
 
     return (
@@ -50,10 +40,11 @@ const SignUp = () => {
                 <button>Create an Account</button>
             </form>
 
+            {error && <p>{error}</p>}
             <p>Already have an account?</p>
-            <Link to ='/login'>Log In Here</Link>
+            <Link to ='/login' className="button">Log In Here</Link>
             <p>or</p>
-            <Link to ='/home'>Proceed as anonymous user</Link>
+            <Link to ='/home' className="button">Proceed as anonymous user</Link>
         </div>
     )
 }

@@ -14,20 +14,21 @@ const userAuthContext = createContext();
 export function UserAuth({ children }) {
 	const [user, setUser] = useState({});
 	// This allows user to log in with the email pw combo they created
-	function logIn(email, password) {
-		return signInWithEmailAndPassword(auth, email, password);
+	async function logIn (email, password) {
+		return await signInWithEmailAndPassword(auth, email, password);
 	}
 	// This allows the user to sign up assuming sign up with email / password
-	function signUp(email, password) {
-		return createUserWithEmailAndPassword(auth, email, password);
+	async function signUp (email, password) {
+		return await createUserWithEmailAndPassword(auth, email, password);
 	}
 	// This allows the user to log out whether signed in anonymously or via email/pw creation
-	function logOut() {
-		return signOut(auth);
+	async function logOut() {
+		signOut(auth);
 	}
-	function googleSignIn() {
+
+	async function googleSignIn () {
 		const googleAuthProvider = new GoogleAuthProvider();
-		return signInWithPopup(auth, googleAuthProvider);
+		return await signInWithPopup(auth, googleAuthProvider);
 	}
 	// this useEffect is to set the current user to whoever is logged in when auth state changes (either logged in as email/pw or anonymously)
 	// returns a function that allows the db auth state listener to unsubscribe when component dismounts
@@ -68,6 +69,6 @@ export function UserAuth({ children }) {
 //   setError(err.message);
 //   alert(error);
 // }
-export function useUserAuth() {
+export function useAuth() {
 	return useContext(userAuthContext);
 }

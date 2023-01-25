@@ -3,36 +3,41 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-// import GoogleButton from "react-google-button";
+import GoogleButton from "react-google-button";
+import { useAuth } from "../context/UserAuth";
 
-const Login = (app) => {
+const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const auth = getAuth();
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    // const auth = getAuth();
+    const { logIn, googleSignIn } = useAuth();
     const navigate = useNavigate();
 
-    const signIn = () => {
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            console.log(user);
-            alert("You have successfully signed in")
-            navigate('/Home')
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            // const errorMessage = error.message;
-            alert(errorCode);
-        });
-    }
-
-    const handleSubmit = (e) => {
+    async function handleSubmit(e) {
         e.preventDefault();
-        signIn();
-        console.log('ahah')
-    }
+        try {
+            setError('');
+            setLoading(true);
+            await logIn(email, password);
+            navigate('/Home');
+        } catch (error) {
+            setError(error.message);
+        }
+        setLoading(false);
+    };
+
+    async function handleGoogleSignIn (e) {
+		e.preventDefault();
+		try {
+			await googleSignIn();
+		} catch(error) {
+			setError(error.message);
+        } finally {
+            navigate('/Home');
+        }
+	};
 
     return (
         <div>
@@ -50,12 +55,21 @@ const Login = (app) => {
                     required
                 />
             {/* need to add error handling to signIn func. so it only goes to Link if it meets criteria */}
-                <button>Sign in</button>
+                <button disabled={loading}>Sign in</button>
             </form>
+            {/* create custom error later */}
+            {error && <p>{error}</p>}
+            <div>
+                <GoogleButton
+                    className='g-btn'
+                    type='dark'
+                    onClick={handleGoogleSignIn}
+                />
+			</div>
             <p>Don't have an account?</p>
-            <Link to ='/signup'>Sign Up Here</Link>
+            <Link to ='/signup' className="button">Sign Up Here</Link>
             <p>or</p>
-            <Link to ='/home'>Proceed as anonymous user</Link>
+            <Link to ='/home' className="button">Proceed as anonymous user</Link>
             {/* ^for this one, figure out whether it should go to protected route or not. maybe home2? */}
         </div>
     )
