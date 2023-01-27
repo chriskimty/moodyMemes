@@ -54,7 +54,7 @@ const Gif = (props) => {
                     value={gifObj.images.original.webp}
                     onChange={select}
                     checked={selectedGif === gifObj.images.original.webp}
-                    style={{ "backgroundImage": `url(${gifObj.images.original.webp})`, "background-size": '300px 300px' }}
+                    style={{ "backgroundImage": `url(${gifObj.images.original.webp})`, "backgroundSize": '300px 300px' }}
                     disabled={finalGif ? true : false}
                     key={uuid()}
                   />

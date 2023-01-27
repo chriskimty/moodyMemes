@@ -20,7 +20,7 @@ const LandingPage = () => {
     setError('')
         try { 
         await logOut()
-            navigate('/login')
+            navigate('/')
         } catch {
             setError('Failed to log out')
         }
@@ -40,7 +40,7 @@ const LandingPage = () => {
                             <button onClick={handleLogOut}>Logout</button>
                             {error && <p>{error}</p>}
                         </div>
-                        : null
+                        : <Link to ='/login'>Login</Link>
                     }
                     <Link to="/Timeline">Timeline</Link>
                 </nav>

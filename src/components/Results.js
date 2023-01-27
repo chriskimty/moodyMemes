@@ -3,12 +3,14 @@ import { getDatabase, ref, push } from "firebase/database";
 import { Link } from "react-router-dom";
 import { useContext, createContext } from "react";
 import { ChoiceContext } from "./GiphyData";
+import { useAuth } from "../context/UserAuth";
 
 export const LikesContext = createContext();
 
 const Results = (props) => {
   // Set variable for 'userChoice' from GiphyData (useContext)
   const userChoice = useContext(ChoiceContext);
+  const { user } = useAuth();
 
   // Variables to set date info
   const date = new Date();
@@ -33,8 +35,11 @@ const Results = (props) => {
   const sendToTimeline = () => {
     const database = getDatabase(firebaseConfig);
     const databaseRef = ref(database);
+    console.log(databaseRef, result)
     push(databaseRef, result);
   };
+
+  // create another function that saves to user specfic one? 
 
   return (
     <section className="results">
@@ -51,13 +56,13 @@ const Results = (props) => {
           Try Again
         </Link>
         <Link
-          className="button"
-          onClick={sendToTimeline}
-          to="/Timeline"
-          state={{ result: result }}
-        >
-          Save to Timeline
-        </Link>
+            className="button"
+            onClick={sendToTimeline}
+            to="/Timeline"
+            state={{ result: result }}
+          >
+            Save to Timeline
+          </Link>
       </div>
     </section>
   );

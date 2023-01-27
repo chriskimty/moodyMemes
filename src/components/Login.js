@@ -12,7 +12,7 @@ const Login = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     // const auth = getAuth();
-    const { logIn, googleSignIn } = useAuth();
+    const { user, logIn, googleSignIn, logInAnonymously } = useAuth();
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
@@ -37,7 +37,18 @@ const Login = () => {
         } finally {
             navigate('/Home');
         }
-	};
+    };
+    
+    async function handleAnonymousSignIn(e) {
+        e.preventDefault();
+        try {
+            await logInAnonymously();
+            navigate('/');
+            console.log(user)
+        } catch (error) {
+            setError(error.message);
+        }
+    }
 
     return (
         <div>
@@ -55,7 +66,7 @@ const Login = () => {
                     required
                 />
             {/* need to add error handling to signIn func. so it only goes to Link if it meets criteria */}
-                <button disabled={loading}>Sign in</button>
+                <button type="submit" disabled={loading}>Sign in</button>
             </form>
             {/* create custom error later */}
             {error && <p>{error}</p>}
@@ -69,8 +80,7 @@ const Login = () => {
             <p>Don't have an account?</p>
             <Link to ='/signup' className="button">Sign Up Here</Link>
             <p>or</p>
-            <Link to ='/home' className="button">Proceed as anonymous user</Link>
-            {/* ^for this one, figure out whether it should go to protected route or not. maybe home2? */}
+            <button onClick={handleAnonymousSignIn} type="submit" className="button">Login as an Anonymous User</button>
         </div>
     )
 };

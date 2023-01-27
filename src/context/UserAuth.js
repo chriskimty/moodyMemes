@@ -3,6 +3,7 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	onAuthStateChanged,
+	signInAnonymously,
 	signOut,
 	GoogleAuthProvider,
 	signInWithPopup,
@@ -24,6 +25,10 @@ export function UserAuth({ children }) {
 	// This allows the user to log out whether signed in anonymously or via email/pw creation
 	async function logOut() {
 		signOut(auth);
+	}
+
+	async function logInAnonymously() {
+		return signInAnonymously(auth);
 	}
 
 	async function googleSignIn () {
@@ -49,26 +54,12 @@ export function UserAuth({ children }) {
 		// this provider allows us to use all the auth functions and access user value anywhere across the app
 		// everything in app.js is wrapped inside <UserAuthContextProvider></userAuthContext.Provider> so that all the children components can access the auth properties
 		<userAuthContext.Provider
-			value={{ user, logIn, signUp, logOut, googleSignIn }}
+			value={{ user, logIn, signUp, logOut, googleSignIn, logInAnonymously }}
 		>
 			{children}
 		</userAuthContext.Provider>
 	);
 }
-
-// this useUserAuth() function can be used in other components to get the auth and user info
-// e.g., in a component:
-// 1. first import the context: import { useUserAuth } from '../context/UserAuthContext';
-// 2. access the needed properties:  const { logIn, logInAsDemo } = useUserAuth();
-// 3. call the auth functions using try/catch and await:
-// try {
-//   await logIn(email, password);
-//   // redirect user to the login page following a successful sign up
-//   navigate('/');
-// } catch (err) {
-//   setError(err.message);
-//   alert(error);
-// }
 export function useAuth() {
 	return useContext(userAuthContext);
 }
