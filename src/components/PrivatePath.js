@@ -1,3 +1,5 @@
+//Currently not using this component; to be used upon creation of individual 'Profiles' where logged-in users with a valid email address can see their own version of timelines. To be implemented in the future
+
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/UserAuth';

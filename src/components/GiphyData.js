@@ -76,11 +76,13 @@ const GiphyData = (props) => {
           } else {
             setNoGifsAvailable(!noGifsAvailable);
             setDisplayGifPage(false);
+            setLoading(false);
           }
         })
         .catch((error) => {
           if (`${baseURL}`.status !== 404) {
             setGiphyError(!giphyError);
+            console.log('error')
           }
         });
     }

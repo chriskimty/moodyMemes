@@ -35,7 +35,7 @@ const LandingPage = () => {
                     </Link>
                     {user.email !== null
                         ?
-                        <div className="userDash">
+                        <div className="userDashboard">
                             <p>Logged in as {user.email}</p>
                             <button onClick={handleLogOut}>Logout</button>
                             {error && <p>{error}</p>}
