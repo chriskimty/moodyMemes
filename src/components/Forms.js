@@ -32,6 +32,7 @@ const Forms = (props) => {
           id="moodSelector"
           type="text"
           onChange={(e) => handleMoodChange(e)}
+          placeholder='Try "wacky"'
         />
         <button
           onClick={props.handleShowGif}

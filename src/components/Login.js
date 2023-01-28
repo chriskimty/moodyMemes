@@ -52,34 +52,39 @@ const Login = () => {
     return (
         <section className="logIn">
             <div className="wrapper accountForm">
-                <h2>Login</h2>
-            <form onSubmit={handleSignIn}>
-                <input
-                    type="email"
-                    placeholder="email address"
-                    onChange={(e) => setEmail(e.target.value)}
-                    required />
-                <input
-                    type="password"
-                    placeholder="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button className="button" type="submit" disabled={loading}>Enter</button>
-            </form>
-                {error && <p>{'Invalid email or password. Please try again!'}</p>}
-                {loading && <LoadingPage/>}
-            <div>
-                <GoogleButton
-                    className='g-btn'
-                    type='dark'
-                    onClick={handleGoogleSignIn}
-                />
-			</div>
-            <p>Don't have an account?</p>
-            <Link to ='/signup' className="button">Sign Up Here</Link>
-            <p>or</p>
-                <button onClick={handleAnonymousSignIn} type="submit" className="button">Try Anonymously</button>
+                <div className="accountContainer">
+                    <h2>Login</h2>
+                    <form className="userForm" onSubmit={handleSignIn}>
+                        <input
+                            type="email"
+                            placeholder="email address"
+                            onChange={(e) => setEmail(e.target.value)}
+                            required />
+                        <input
+                            type="password"
+                            placeholder="password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <button className="button" type="submit" disabled={loading}>Enter</button>
+                        {error && <p>{'Invalid email or password. Please try again!'}</p>}
+                        {loading && <LoadingPage/>}
+                    </form>
+                    
+                    <div className="googleBtn">
+                        <GoogleButton
+                            className='g-btn'
+                            type='dark'
+                            onClick={handleGoogleSignIn}
+                        />
+                    </div>
+                    <div className="LoginOptions">
+                        <p>Don't have an account?</p>
+                        <Link to ='/signup' className="button">Sign Up Here</Link>
+                        <p>or</p>
+                        <button onClick={handleAnonymousSignIn} type="submit" className="button">Try Anonymously</button> 
+                    </div>
+                </div>
             </div>
         </section>
     )

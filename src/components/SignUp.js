@@ -29,28 +29,32 @@ const SignUp = () => {
     return (
         <section className="signUp">
             <div className="wrapper accountForm">
-                <h2>Sign Up</h2>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="email"
-                        placeholder="email address"
-                        onChange={(e) => setEmail(e.target.value)}
-                        required />
-                    <input
-                        type="password"
-                        placeholder="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    <button className="button">Create an Account</button>
-                </form>
-
-                {error && <p>{'Your password should be at least 6 characters. Please try again!'}</p>}
-                {loading && <LoadingPage/>}
-                <p>Already have an account?</p>
-                <Link to='/login' className="button">Log In Here</Link>
-                <p>or</p>
-                <Link to='/home' className="button">Proceed as anonymous user</Link>
+                <div className="accountContainer">
+                    <h2>Sign Up</h2>
+                    <form className="userForm" onSubmit={handleSubmit}>
+                        <input
+                            type="email"
+                            placeholder="email address"
+                            onChange={(e) => setEmail(e.target.value)}
+                            required />
+                        <input
+                            type="password"
+                            placeholder="password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                        <button className="button">Create an Account</button>
+                    
+                        {error && <p>{'Your password should be at least 6 characters. Please try again!'}</p>}
+                        {loading && <LoadingPage/>}
+                    </form>
+                    <div className="LoginOptions">
+                        <p>Already have an account?</p>
+                        <Link to='/login' className="button">Log In Here</Link>
+                        <p>or</p>
+                            <Link to='/home' className="button">Proceed as anonymous user</Link>
+                    </div>
+                </div>
             </div>
         </section>
     )
