@@ -10,7 +10,7 @@ export const LikesContext = createContext();
 const Results = (props) => {
   // Set variable for 'userChoice' from GiphyData (useContext)
   const userChoice = useContext(ChoiceContext);
-  const { user } = useAuth();
+  const { currentUser } = useAuth();
 
   // Variables to set date info
   const date = new Date();
@@ -29,6 +29,7 @@ const Results = (props) => {
     mood: userChoice,
     image: props.finalGif,
     date: `${month} ${day}, ${year}`,
+    uid: currentUser.uid,
   };
 
   // Variables to set database and databaseRef for firebase; call the push function into firebase
@@ -38,8 +39,6 @@ const Results = (props) => {
     console.log(databaseRef, result)
     push(databaseRef, result);
   };
-
-  // create another function that saves to user specfic one? 
 
   return (
     <section className="results">

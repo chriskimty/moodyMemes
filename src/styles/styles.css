@@ -755,13 +755,13 @@ footer .wrapper .creatives a:focus {
   }
 }
 
-.timelineButtons {
+.timelineControls {
   display: flex;
   justify-content: center;
   align-items: baseline;
   z-index: 2;
 }
-.timelineButtons button {
+.timelineControls button {
   padding: 0px;
   width: 40px;
   min-width: 40px;
@@ -856,6 +856,41 @@ footer .wrapper .creatives a:focus {
     transform: translateY(0px);
   }
 }
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.295);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+}
+.modal .modalContainer {
+  background-color: #141414;
+  max-width: 500px;
+  padding: 30px 40px;
+  border-radius: 25px;
+  position: absolute;
+  color: #F7F2E9;
+}
+.modal .deleteControls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.modal .deleteControls button:hover {
+  background-color: #F7F2E9;
+  color: #141414;
+}
+.modal .deleteControls button:focus {
+  background-color: #545775;
+  color: #F7F2E9;
+}
+
 .meetTheDevs {
   min-height: 110vh;
   background-color: rgb(235, 235, 235);

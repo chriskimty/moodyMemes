@@ -11,11 +11,10 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-    // const auth = getAuth();
-    const { user, logIn, googleSignIn, logInAnonymously } = useAuth();
+    const { logIn, googleSignIn, logInAnonymously } = useAuth();
     const navigate = useNavigate();
 
-    async function handleSubmit(e) {
+    async function handleSignIn(e) {
         e.preventDefault();
         try {
             setError('');
@@ -31,7 +30,7 @@ const Login = () => {
     async function handleGoogleSignIn (e) {
 		e.preventDefault();
 		try {
-			await googleSignIn();
+            await googleSignIn();
 		} catch(error) {
 			setError(error.message);
         } finally {
@@ -43,8 +42,7 @@ const Login = () => {
         e.preventDefault();
         try {
             await logInAnonymously();
-            navigate('/');
-            console.log(user)
+            navigate('/Home');
         } catch (error) {
             setError(error.message);
         }
@@ -53,7 +51,7 @@ const Login = () => {
     return (
         <div>
             <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSignIn}>
                 <input
                     type="email"
                     placeholder="email address"

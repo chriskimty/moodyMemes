@@ -10,6 +10,7 @@ const SignUp = () => {
     const navigate = useNavigate();
     const { signUp, logIn } = useAuth();
 
+    // figure out if when user signs up, does that automatically keep them logged in too? 
     async function handleSubmit(e){
         e.preventDefault();
         try {

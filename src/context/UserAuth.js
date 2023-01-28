@@ -14,12 +14,19 @@ const userAuthContext = createContext();
 // this function provides the rest of the app with all the necessary functions for user auth management (e.g. login, logout etc.)
 export function UserAuth({ children }) {
 	const [user, setUser] = useState({});
+	const currentUser = auth.currentUser;
+
+	// displays info of current user open log in (w/ email, or google, or anon)
+	if (currentUser) {
+		console.log(currentUser.uid, currentUser.email)
+	}
+
 	// This allows user to log in with the email pw combo they created
-	async function logIn (email, password) {
+	async function logIn(email, password) {
 		return await signInWithEmailAndPassword(auth, email, password);
 	}
 	// This allows the user to sign up assuming sign up with email / password
-	async function signUp (email, password) {
+	async function signUp(email, password) {
 		return await createUserWithEmailAndPassword(auth, email, password);
 	}
 	// This allows the user to log out whether signed in anonymously or via email/pw creation
@@ -54,7 +61,7 @@ export function UserAuth({ children }) {
 		// this provider allows us to use all the auth functions and access user value anywhere across the app
 		// everything in app.js is wrapped inside <UserAuthContextProvider></userAuthContext.Provider> so that all the children components can access the auth properties
 		<userAuthContext.Provider
-			value={{ user, logIn, signUp, logOut, googleSignIn, logInAnonymously }}
+			value={{ user, currentUser, logIn, signUp, logOut, googleSignIn, logInAnonymously }}
 		>
 			{children}
 		</userAuthContext.Provider>

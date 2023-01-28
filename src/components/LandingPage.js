@@ -33,7 +33,7 @@ const LandingPage = () => {
                     <Link to="/">
                         <img className="navLogo" src={navLogo2} alt="" />
                     </Link>
-                    {user
+                    {user.email !== null
                         ?
                         <div className="userDash">
                             <p>Logged in as {user.email}</p>
