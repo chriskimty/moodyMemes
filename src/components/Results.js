@@ -51,13 +51,13 @@ const Results = (props) => {
       </div>
 
       <div className="buttonWrap">
-        <Link className="button" to="/Home" onClick={refreshPage}>
+        <Link className="button" to="/home" onClick={refreshPage}>
           Try Again
         </Link>
         <Link
             className="button"
             onClick={sendToTimeline}
-            to="/Timeline"
+            to="/timeline"
             state={{ result: result }}
           >
             Save to Timeline

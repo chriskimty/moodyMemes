@@ -42,7 +42,7 @@ const LandingPage = () => {
                         </div>
                         : <Link to ='/login'>Login</Link>
                     }
-                    <Link to="/Timeline">Timeline</Link>
+                    <Link to="/timeline">Timeline</Link>
                 </nav>
                 <GifContext.Provider value={gif}>
                     <GiphyData setGif={setGif} />

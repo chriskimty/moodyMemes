@@ -43,7 +43,7 @@ const Timeline = (props) => {
         <section className="timeline">
             <div className="wrapper">
                 <nav>
-                    <Link to="/Home">
+                    <Link to="/home">
                         <img className="navLogo" src={navLogo2} alt="" />
                     </Link>
                 </nav>

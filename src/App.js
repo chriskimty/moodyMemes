@@ -11,7 +11,6 @@ import NotFound from "./components/NotFound";
 import { UserAuth } from "./context/UserAuth";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import PrivatePath from "./components/PrivatePath";
 
 function App() {
   return (
@@ -21,16 +20,9 @@ function App() {
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/Home" element={<LandingPage />} /> 
-          <Route path="/MeetTheDevs" element={<MeetTheDevs />} />
-
-          {/* protects this timeline from users not logged in */}
-          <Route path="/personaltimeline" element={
-              <PrivatePath>
-                <Timeline />
-              </PrivatePath>} />
-          {/* public timeline for anonymous users */}
-          <Route path="/Timeline" element={<Timeline />} />
+          <Route path="/home" element={<LandingPage />} /> 
+          <Route path="/meetthedevs" element={<MeetTheDevs />} />
+          <Route path="/timeline" element={<Timeline />} />
           <Route path="*" element={<NotFound />} />
           </Routes>
         </UserAuth>

@@ -20,7 +20,7 @@ const Login = () => {
             setError('');
             setLoading(true);
             await logIn(email, password);
-            navigate('/Home');
+            navigate('/home');
         } catch (error) {
             setError(error.message);
         }
@@ -34,7 +34,7 @@ const Login = () => {
 		} catch(error) {
 			setError(error.message);
         } finally {
-            navigate('/Home');
+            navigate('/home');
         }
     };
     
@@ -42,7 +42,7 @@ const Login = () => {
         e.preventDefault();
         try {
             await logInAnonymously();
-            navigate('/Home');
+            navigate('/home');
         } catch (error) {
             setError(error.message);
         }

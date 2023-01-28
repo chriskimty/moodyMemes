@@ -5,5 +5,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/Home"
+  to = "/home"
   status = 200
