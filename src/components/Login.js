@@ -5,19 +5,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import GoogleButton from "react-google-button";
 import { useAuth } from "../context/UserAuth";
+import LoadingPage from './LoadingPage';
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [ email, setEmail ] = useState("");
+    const [ password, setPassword ] = useState("");
+    const [ error, setError ] = useState("");
+    const [ loading, setLoading ] = useState(false);
     const { logIn, googleSignIn, logInAnonymously } = useAuth();
     const navigate = useNavigate();
 
     async function handleSignIn(e) {
         e.preventDefault();
         try {
-            setError('');
             setLoading(true);
             await logIn(email, password);
             navigate('/home');
@@ -29,13 +29,14 @@ const Login = () => {
 
     async function handleGoogleSignIn (e) {
 		e.preventDefault();
-		try {
+        try {
+            setLoading(true);
             await googleSignIn();
+            navigate('/home');
 		} catch(error) {
 			setError(error.message);
-        } finally {
-            navigate('/home');
         }
+        setLoading(false);
     };
     
     async function handleAnonymousSignIn(e) {
@@ -44,13 +45,14 @@ const Login = () => {
             await logInAnonymously();
             navigate('/home');
         } catch (error) {
-            setError(error.message);
+            setError('Cannot complete at this time. Please try again', error.message);
         }
     }
 
     return (
-        <div>
-            <h2>Login</h2>
+        <section className="logIn">
+            <div className="wrapper accountForm">
+                <h2>Login</h2>
             <form onSubmit={handleSignIn}>
                 <input
                     type="email"
@@ -63,11 +65,10 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-            {/* need to add error handling to signIn func. so it only goes to Link if it meets criteria */}
-                <button type="submit" disabled={loading}>Sign in</button>
+                <button className="button" type="submit" disabled={loading}>Enter</button>
             </form>
-            {/* create custom error later */}
-            {error && <p>{error}</p>}
+                {error && <p>{'Invalid email or password. Please try again!'}</p>}
+                {loading && <LoadingPage/>}
             <div>
                 <GoogleButton
                     className='g-btn'
@@ -78,8 +79,9 @@ const Login = () => {
             <p>Don't have an account?</p>
             <Link to ='/signup' className="button">Sign Up Here</Link>
             <p>or</p>
-            <button onClick={handleAnonymousSignIn} type="submit" className="button">Login as an Anonymous User</button>
-        </div>
+                <button onClick={handleAnonymousSignIn} type="submit" className="button">Try Anonymously</button>
+            </div>
+        </section>
     )
 };
 

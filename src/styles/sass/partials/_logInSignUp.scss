@@ -1,0 +1,15 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.accountForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    h2 {
+        font-size: clamp(2.5rem, 2.0652rem + 2.1739vw, 4.375rem);
+        font-weight: 300;
+        letter-spacing: 3px;
+    }
+}
