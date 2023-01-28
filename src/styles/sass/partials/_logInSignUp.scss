@@ -6,9 +6,12 @@
     min-height: 90vh;
     .accountContainer {
         @include flexDefault;
-        min-width: 350px;
+        min-width: 400px;
         background-color: white;
-        border-radius: 15px;
+        border: 1px solid $secondaryColor;
+        box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+        border-radius: 25px;
+        padding: 0px 15px;
         h2 {
         font-size: clamp(1.875rem, 1.5127rem + 1.8116vw, 3.4375rem);
         letter-spacing: 3px;
@@ -24,14 +27,36 @@
         font-family: $bodyFont;
         padding: 5px;
         text-align: center;
-        width: 25%;
         min-width: 300px;
         font-size: 1.2rem;
-        margin-bottom: 30px;
+        margin-bottom: 12px;
         &:focus {
             border: 2px solid black;
             outline: none;
         }
     }
+    button {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
 }
 
+.googleBtn {
+    @include flexDefault;
+}
+
+.divider {
+    color: white;
+    min-width: 350px;
+}
+
+.loginOptions {
+    @include flexDefault;
+    margin-bottom: 25px;
+    p {
+        margin: 5px 0;
+    }
+    button, .button {
+        padding: 10px;
+    }
+}

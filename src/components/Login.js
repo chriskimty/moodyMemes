@@ -77,8 +77,9 @@ const Login = () => {
                             type='dark'
                             onClick={handleGoogleSignIn}
                         />
+                        <hr class="divider"/>
                     </div>
-                    <div className="LoginOptions">
+                    <div className="loginOptions">
                         <p>Don't have an account?</p>
                         <Link to ='/signup' className="button">Sign Up Here</Link>
                         <p>or</p>

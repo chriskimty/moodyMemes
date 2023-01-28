@@ -48,11 +48,10 @@ const SignUp = () => {
                         {error && <p>{'Your password should be at least 6 characters. Please try again!'}</p>}
                         {loading && <LoadingPage/>}
                     </form>
-                    <div className="LoginOptions">
+                    <div className="loginOptions">
+                        <hr class="divider"/>
                         <p>Already have an account?</p>
-                        <Link to='/login' className="button">Log In Here</Link>
-                        <p>or</p>
-                            <Link to='/home' className="button">Proceed as anonymous user</Link>
+                        <Link to='/login' className="button">Sign In</Link>
                     </div>
                 </div>
             </div>

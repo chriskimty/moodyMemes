@@ -396,9 +396,12 @@ footer .wrapper .creatives a:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 350px;
+  min-width: 400px;
   background-color: white;
-  border-radius: 15px;
+  border: 1px solid #141414;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 25px;
+  padding: 0px 15px;
 }
 .accountForm .accountContainer h2 {
   font-size: clamp(1.875rem, 1.5127rem + 1.8116vw, 3.4375rem);
@@ -417,14 +420,43 @@ footer .wrapper .creatives a:focus {
   font-family: "Josefin Sans";
   padding: 5px;
   text-align: center;
-  width: 25%;
   min-width: 300px;
   font-size: 1.2rem;
-  margin-bottom: 30px;
+  margin-bottom: 12px;
 }
 .userForm input:focus {
   border: 2px solid black;
   outline: none;
+}
+.userForm button {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.googleBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider {
+  color: white;
+  min-width: 350px;
+}
+
+.loginOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.loginOptions p {
+  margin: 5px 0;
+}
+.loginOptions button, .loginOptions .button {
+  padding: 10px;
 }
 
 .landingPage nav {
