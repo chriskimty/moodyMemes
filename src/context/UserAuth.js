@@ -17,6 +17,7 @@ export function UserAuth({ children }) {
 	const currentUser = auth.currentUser;
 
 	// displays info of current user open log in (w/ email, or google, or anon)
+	// ** remove this before deploying
 	if (currentUser) {
 		console.log(currentUser.uid, currentUser.email)
 	}

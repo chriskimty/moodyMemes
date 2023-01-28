@@ -4,7 +4,7 @@ const ConfirmDelete = ({setDeleteAlert, handleRemoveMeme, removeUID}) => {
             <div className="modalContainer">
                 <h3>⚠️ Are you Sure? ⚠️</h3>
                 <p>This will delete your moody meme. Are you sure you want to proceed?</p>
-                <div className="deleteControls">
+                <div className="controls">
                     <button
                         className="cancel button"
                         onClick={(e) => {

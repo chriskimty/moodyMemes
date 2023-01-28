@@ -6,13 +6,16 @@ import uuid from "react-uuid";
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png';
 import { useAuth } from "../context/UserAuth";
 import ConfirmDelete from './ConfirmDelete';
+import Warning from './Warning';
 
 const Timeline = (props) => {
     //State to save user's gif and info object into the timeline
     const [ timeline, setTimeline ] = useState([]);
-    const { currentUser } = useAuth();
-    const [ deleteAlert, setDeleteAlert ] = useState(false);
+    
+    const [deleteAlert, setDeleteAlert] = useState(false);
     const [removeUID, setRemoveUID] = useState('');
+    const [ nonUserWarning, setNonUserWarning ] = useState(false);
+    const { currentUser } = useAuth();
     
     useEffect(() => {
         const database = getDatabase(firebaseConfig);
@@ -76,16 +79,18 @@ const Timeline = (props) => {
                                             }}>
                                                 <i className="fa-regular fa-trash-can" aria-label="delete icon"></i>
                                             </button>
-                                            : <button onClick={() => 
-                                                alert('You cannot delete memes of other users!')
-                                            }>
-                                                
+                                            : <button onClick={(e) => {
+                                                e.preventDefault();
+                                                setNonUserWarning(true);
+                                            }}>
                                                 <i className="fa-regular fa-trash-can" aria-label="delete icon"></i>
                                             </button>
                                         }
                                     </div>  
                                 </div>
-                                {deleteAlert && <ConfirmDelete setDeleteAlert={setDeleteAlert} handleRemoveMeme={handleRemoveMeme} removeUID={removeUID}/>}
+                                {deleteAlert && <ConfirmDelete setDeleteAlert={setDeleteAlert} handleRemoveMeme={handleRemoveMeme} removeUID={removeUID} />}
+                                
+                                {nonUserWarning && <Warning setNonUserWarning={setNonUserWarning} />}
                             </div>
                         )
                     })}

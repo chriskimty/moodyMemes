@@ -970,7 +970,7 @@ footer .wrapper .creatives a:focus {
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: rgba(0, 0, 0, 0.212);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -984,17 +984,17 @@ footer .wrapper .creatives a:focus {
   position: absolute;
   color: #F7F2E9;
 }
-.modal .deleteControls {
+.modal .controls {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
 }
-.modal .deleteControls button:hover {
+.modal .controls button:hover, .modal .controls .button:hover {
   background-color: #F7F2E9;
   color: #141414;
 }
-.modal .deleteControls button:focus {
+.modal .controls button:focus, .modal .controls .button:focus {
   background-color: #545775;
   color: #F7F2E9;
 }

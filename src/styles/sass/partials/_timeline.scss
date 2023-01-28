@@ -226,7 +226,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.295);
+  background-color: rgba(0, 0, 0, 0.212);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -241,12 +241,12 @@
         color: $white;
     }
 
-    .deleteControls {
+    .controls {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px;
-        button {
+        button, .button {
             &:hover {
                 background-color: $white;
                 color: $secondaryColor;
