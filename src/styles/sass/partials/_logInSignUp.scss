@@ -40,16 +40,13 @@
         margin-bottom: 15px;
     }
 }
-
 .googleBtn {
     @include flexDefault;
 }
-
 .divider {
     color: white;
     min-width: 350px;
 }
-
 .loginOptions {
     @include flexDefault;
     margin-bottom: 25px;

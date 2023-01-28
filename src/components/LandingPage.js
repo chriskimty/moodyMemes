@@ -30,19 +30,25 @@ const LandingPage = () => {
         <section className="landingPage">
             <div className="wrapper">
                 <nav>
-                    <Link to="/">
-                        <img className="navLogo" src={navLogo2} alt="" />
-                    </Link>
-                    {user.email !== null
-                        ?
-                        <div className="userDashboard">
-                            <p>Logged in as {user.email}</p>
-                            <button onClick={handleLogOut}>Logout</button>
-                            {error && <p>{error}</p>}
-                        </div>
-                        : <Link to ='/login'>Login</Link>
-                    }
-                    <Link to="/timeline">Timeline</Link>
+                    <div className="logo">
+                        <Link to="/">
+                            <img className="navLogo" src={navLogo2} alt="" />
+                        </Link>
+                    </div>
+                    <div className="links">
+                        {user.email !== null
+                            ?
+                            <div className="dashboard loggedIn">
+                                <p className="userInfo"><i class="fa-solid fa-user"></i>{user.email}</p>
+                                <button onClick={handleLogOut}>Logout</button>
+                                {error && <p>{error}</p>}
+                            </div>
+                            : <div className="dashboard">
+                                <Link to='/login'>Login</Link>
+                            </div>
+                        }
+                        <Link to="/timeline">Timeline</Link>
+                    </div>
                 </nav>
                 <GifContext.Provider value={gif}>
                     <GiphyData setGif={setGif} />

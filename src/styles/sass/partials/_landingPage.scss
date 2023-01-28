@@ -7,10 +7,43 @@
         flex-wrap: nowrap;
         justify-content: space-evenly;
         align-items: center;
+        margin-top: 30px;
         .navLogo {
             width: 10%;
             min-width: 117px;
-            margin-top: 30px;
+        }
+        .links {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+            .dashboard {
+                margin-right: 25px;
+            }
         }
     } 
+}
+
+.loggedIn {
+    display: flex;
+    .userInfo {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        background-color: $accentColor;
+        padding: 5px 10px;
+        border-radius: 25px;
+        margin: 0 auto;
+        font-size: 1rem;
+        i {
+            margin-right: 5px;
+        }
+    }
+    button {
+        padding: 5px;
+        font-family: $bodyFont;
+        min-width: 100px;
+        min-height: 10px;
+        background: transparent;
+    }
 }
