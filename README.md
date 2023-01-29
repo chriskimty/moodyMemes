@@ -1,26 +1,29 @@
-# Moody Memes: Track your Mood in Memes over Time! 
+# Moody Memes 2.0: Track your Mood in Memes over Time! 
 
-<a href="https://moodymemes.netlify.app/">🔗Live Link</a>
+<a href="https://moody-memes.vercel.app/">🔗Live Link</a>
 
 # About
-<p><a href="https://moodymemes.netlify.app/"> Moody Memes</a> is a React application that allows users to track their mood in memes over time, by allowing users to type in their mood of the day, choose a meme/gif that best represents their mood, and save their 'Moody Meme' to the timeline.</p>
+<p><a href="https://moody-memes.vercel.app/"> Moody Memes 2.0</a> is a React application that allows authenticated users to track their mood in memes over time, by allowing users to type in their mood of the day, choose a meme/gif that best represents their mood, and save their 'Moody Meme' to the timeline. Users can sign-up for an account using an email address and password, via Google Sign-In, or as an anonymous user.</p>
 
-<p>This project was created by <a href="https://github.com/BrittFreitas">Brittany Freitas</a>, <a href="https://github.com/chriskimty">Chris Taeyoung Kim</a>, <a href="https://github.com/dbutch25">Daniel Butcher</a> and <a href="https://github.com/kwametsunami">Kwame Appiah-Kubi</a>, completed in November 2022 with <a href="https://junocollege.com">Juno College's</a> Web Development Bootcamp ✨ Cohort 44 ✨, as part of a team-based React project.</p> 
+<p>This project is a solo extension to <a href="https://moodymemes.netlify.app/">Moody Memes</a> (<a href="https://github.com/giphySentiment/moodyMemes">Repo</a>),a team-based React project completed at <a href="https://junocollege.com">Juno College, with <a href="https://github.com/BrittFreitas">Brittany Freitas</a>, <a href="https://github.com/dbutch25">Daniel Butcher</a> and <a href="https://github.com/kwametsunami">Kwame Appiah-Kubi</a>.</p> 
 
-<p>The project showcases our understanding of:</p>
+<p>Moody Memes 2.0 features:</p>
 
-- Core React concepts (state, props, components, Routing) applied to larger applications
-- Working with third-party API/data sources (API and Firebase)
-- Error handling, UI design and functional programming
-- Working in an agency environment for a client, specifically coordinating and communicating within a group
-- Delivering a fully functional product on a timeline
-- Collaborating on Github
+- CRUD (Create, Read, Update, Delete) functionalities for saved memes
+- User authentication with Firebase
+- Session persistence (user remains logged within the same session)
+- Anonymous User Sign-In
+- Timeline features saved memes by users
+- Users can only delete memes that they generated
+- Usage of React features and hooks (useState, useEffect, useContext, useNavigate, useRef, Link, Router, props, components, context)
+- Firebase (User Authentication, Realtime Database)
 
 # Project Demonstration
-<img src="./src/assets/screenRecord.gif" alt="screen recording of the moody memes app running">
+<!-- <img src="./src/assets/screenRecord.gif" alt="screen recording of the moody memes app running"> -->
+<p>Coming Soon!</p>
 
 <p>
-✨Moody Memes is graciously powered by the <a href="https://developers.giphy.com/docs/api/">Giphy API</a>.</p>
+✨Moody Memes 2.0 is graciously powered by the <a href="https://developers.giphy.com/docs/api/">Giphy API</a>.</p>
 
 
 
