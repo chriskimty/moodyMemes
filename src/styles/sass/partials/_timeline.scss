@@ -167,7 +167,7 @@
             }
         }
     }
-    .timelineButtons {
+    .timelineControls {
         display: flex;
         justify-content: center;
         align-items: baseline;
@@ -183,20 +183,6 @@
             margin: 15px;
         }
     }
-
-// .inner {
-//     // border: 5px solid black;
-//     position: relative;
-//     &::after {
-//         content: "";
-//         width: 50px;
-//         height: 100%;
-//         background-color: $tertiaryColor;
-//         // position: absolute;
-//         // bottom: -45px;
-//         // right: 120px;
-//     }
-// }
 
 .scrollInst {
     margin-top: 20px;
@@ -232,3 +218,49 @@
     50% { transform: translateY(15px);}
     100% { transform: translateY(0px);}
 }
+
+// Modal
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.57);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+
+  .modalContainer {
+        background-color: $secondaryColor;
+        max-width: 500px;
+        padding: 30px 40px;
+        border-radius: 25px;
+        position: absolute;
+        color: $white;
+        @include flexDefault;
+        text-align: center;
+        @include mobileLarge {
+            max-width: 430px;
+        }
+    }
+
+    .controls {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        button, .button {
+            &:hover {
+                background-color: $white;
+                color: $secondaryColor;
+            }
+            &:focus {
+                background-color: $tertiaryColor;
+                color: $white;
+            }
+        }
+    }
+}
+

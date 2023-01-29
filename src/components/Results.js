@@ -3,12 +3,14 @@ import { getDatabase, ref, push } from "firebase/database";
 import { Link } from "react-router-dom";
 import { useContext, createContext } from "react";
 import { ChoiceContext } from "./GiphyData";
+import { useAuth } from "../context/UserAuth";
 
 export const LikesContext = createContext();
 
 const Results = (props) => {
   // Set variable for 'userChoice' from GiphyData (useContext)
   const userChoice = useContext(ChoiceContext);
+  const { currentUser } = useAuth();
 
   // Variables to set date info
   const date = new Date();
@@ -27,6 +29,7 @@ const Results = (props) => {
     mood: userChoice,
     image: props.finalGif,
     date: `${month} ${day}, ${year}`,
+    uid: currentUser.uid,
   };
 
   // Variables to set database and databaseRef for firebase; call the push function into firebase
@@ -47,17 +50,17 @@ const Results = (props) => {
       </div>
 
       <div className="buttonWrap">
-        <Link className="button" to="/Home" onClick={refreshPage}>
+        <Link className="button" to="/home" onClick={refreshPage}>
           Try Again
         </Link>
         <Link
-          className="button"
-          onClick={sendToTimeline}
-          to="/Timeline"
-          state={{ result: result }}
-        >
-          Save to Timeline
-        </Link>
+            className="button"
+            onClick={sendToTimeline}
+            to="/timeline"
+            state={{ result: result }}
+          >
+            Save to Timeline
+          </Link>
       </div>
     </section>
   );

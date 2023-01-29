@@ -1,0 +1,77 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.accountForm {
+    @include flexDefault;
+    min-height: 90vh;
+    .accountContainer {
+        @include flexDefault;
+        min-width: 400px;
+        background-color: white;
+        border: 1px solid $secondaryColor;
+        box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+        border-radius: 25px;
+        padding: 0px 15px;
+        h2 {
+        font-size: clamp(1.875rem, 1.5127rem + 1.8116vw, 3.4375rem);
+        letter-spacing: 3px;
+        }
+        @include mobileLarge {
+            min-width: 350px;
+            max-width: 350px;
+        }
+        @include mobile {
+            min-width: 300px;
+            max-width: 300px;
+        }
+    }
+} 
+    
+.userForm {
+    @include flexDefault;
+    input {
+        border-radius: 5px;
+        border: 2px solid $accentColor;
+        font-family: $bodyFont;
+        padding: 5px;
+        text-align: center;
+        min-width: 300px;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        @include mobile {
+            min-width: 250px;
+        }
+        &:focus {
+            border: 2px solid black;
+            outline: none;
+        }
+    }
+    button {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+}
+.googleBtn {
+    @include flexDefault;
+}
+
+.divider {
+    color: white;
+    min-width: 350px;
+    @include mobileLarge {
+        min-width: 300px;
+    }
+    @include mobile {
+        min-width: 250px;
+    }
+}
+.loginOptions {
+    @include flexDefault;
+    margin-bottom: 25px;
+    p {
+        margin: 5px 0;
+    }
+    button, .button {
+        padding: 10px;
+    }
+}

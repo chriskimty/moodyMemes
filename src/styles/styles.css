@@ -384,24 +384,220 @@ footer .wrapper .creatives a:focus {
   }
 }
 
-.landingPage nav {
+.accountForm {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+.accountForm .accountContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 400px;
+  background-color: white;
+  border: 1px solid #141414;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 25px;
+  padding: 0px 15px;
+}
+.accountForm .accountContainer h2 {
+  font-size: clamp(1.875rem, 1.5127rem + 1.8116vw, 3.4375rem);
+  letter-spacing: 3px;
+}
+@media (max-width: 680px) {
+  .accountForm .accountContainer {
+    min-width: 350px;
+    max-width: 350px;
+  }
+}
+@media (max-width: 450px) {
+  .accountForm .accountContainer {
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
+
+.userForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.userForm input {
+  border-radius: 5px;
+  border: 2px solid #EDD060;
+  font-family: "Josefin Sans";
+  padding: 5px;
+  text-align: center;
+  min-width: 300px;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+@media (max-width: 450px) {
+  .userForm input {
+    min-width: 250px;
+  }
+}
+.userForm input:focus {
+  border: 2px solid black;
+  outline: none;
+}
+.userForm button {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.googleBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider {
+  color: white;
+  min-width: 350px;
+}
+@media (max-width: 680px) {
+  .divider {
+    min-width: 300px;
+  }
+}
+@media (max-width: 450px) {
+  .divider {
+    min-width: 250px;
+  }
+}
+
+.loginOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.loginOptions p {
+  margin: 5px 0;
+}
+.loginOptions button, .loginOptions .button {
+  padding: 10px;
+}
+
+.landingPage nav {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+}
+@media (max-width: 680px) {
+  .landingPage nav {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 .landingPage nav .navLogo {
   width: 10%;
   min-width: 117px;
-  margin-top: 30px;
+}
+@media (max-width: 680px) {
+  .landingPage nav .navLogo {
+    display: flex;
+    margin: 0 auto;
+    width: 35%;
+  }
+}
+.landingPage nav .links {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@media (max-width: 680px) {
+  .landingPage nav .links {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+    border: 1px solid #141414;
+  }
+}
+@media (max-width: 680px) {
+  .landingPage nav .links .altColorForMQ:hover {
+    color: black;
+    text-shadow: #EDD060 2px 5px;
+    font-weight: bold;
+  }
+}
+.landingPage nav .links .dashboard {
+  margin-right: 25px;
+}
+
+.loggedIn {
+  display: flex;
+}
+.loggedIn .hiddenUntilMobile {
+  display: none;
+  cursor: pointer;
+  background-color: #EDD060;
+  padding: 5px 10px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.loggedIn .hiddenUntilMobile:hover {
+  background-color: black;
+  color: #EDD060;
+  border: 1px solid transparent;
+}
+@media (max-width: 450px) {
+  .loggedIn .hiddenUntilMobile {
+    display: flex;
+    align-items: center;
+  }
+}
+.loggedIn .userInfo {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: #EDD060;
+  padding: 5px 10px;
+  border-radius: 25px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+@media (max-width: 450px) {
+  .loggedIn .userInfo {
+    display: none;
+  }
+}
+.loggedIn .userInfo i {
+  margin-right: 5px;
+}
+.loggedIn button {
+  padding: 5px;
+  font-family: "Josefin Sans";
+  min-width: 100px;
+  min-height: 10px;
+  background: transparent;
+}
+
+.hiddenEmail {
+  margin: 0px;
+  padding: 0px;
+  font-size: 1rem;
+  position: fixed;
+  top: 145px;
 }
 
 .forms {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   height: 86vh;
 }
 .forms h3 {
@@ -430,8 +626,8 @@ footer .wrapper .creatives a:focus {
 .forms form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .forms form input {
   border-radius: 5px;
@@ -536,8 +732,8 @@ footer .wrapper .creatives a:focus {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background-color: #98C1D9;
   gap: 15px;
 }
@@ -755,13 +951,13 @@ footer .wrapper .creatives a:focus {
   }
 }
 
-.timelineButtons {
+.timelineControls {
   display: flex;
   justify-content: center;
   align-items: baseline;
   z-index: 2;
 }
-.timelineButtons button {
+.timelineControls button {
   padding: 0px;
   width: 40px;
   min-width: 40px;
@@ -856,6 +1052,51 @@ footer .wrapper .creatives a:focus {
     transform: translateY(0px);
   }
 }
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.57);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+}
+.modal .modalContainer {
+  background-color: #141414;
+  max-width: 500px;
+  padding: 30px 40px;
+  border-radius: 25px;
+  position: absolute;
+  color: #F7F2E9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+@media (max-width: 680px) {
+  .modal .modalContainer {
+    max-width: 430px;
+  }
+}
+.modal .controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.modal .controls button:hover, .modal .controls .button:hover {
+  background-color: #F7F2E9;
+  color: #141414;
+}
+.modal .controls button:focus, .modal .controls .button:focus {
+  background-color: #545775;
+  color: #F7F2E9;
+}
+
 .meetTheDevs {
   min-height: 110vh;
   background-color: rgb(235, 235, 235);

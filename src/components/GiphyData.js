@@ -76,6 +76,7 @@ const GiphyData = (props) => {
           } else {
             setNoGifsAvailable(!noGifsAvailable);
             setDisplayGifPage(false);
+            setLoading(false);
           }
         })
         .catch((error) => {

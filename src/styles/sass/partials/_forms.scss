@@ -2,11 +2,8 @@
 @use "./mixins" as *;
 
 .forms {
-    display: flex;
+    @include flexDefault;
     flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     height: 86vh;
     h3 {
         font-size: 5rem;
@@ -29,10 +26,7 @@
     }
 
     form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flexDefault;
         input {
             border-radius: 5px;
             border: 2px solid transparent;
