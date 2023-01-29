@@ -82,7 +82,6 @@ const GiphyData = (props) => {
         .catch((error) => {
           if (`${baseURL}`.status !== 404) {
             setGiphyError(!giphyError);
-            console.log('error')
           }
         });
     }

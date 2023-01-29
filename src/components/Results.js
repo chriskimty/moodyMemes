@@ -36,7 +36,6 @@ const Results = (props) => {
   const sendToTimeline = () => {
     const database = getDatabase(firebaseConfig);
     const databaseRef = ref(database);
-    console.log(databaseRef, result)
     push(databaseRef, result);
   };
 

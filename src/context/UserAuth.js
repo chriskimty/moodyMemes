@@ -17,10 +17,9 @@ export function UserAuth({ children }) {
 	const currentUser = auth.currentUser;
 
 	// displays info of current user open log in (w/ email, or google, or anon)
-	// ** remove this before deploying
-	if (currentUser) {
-		console.log(currentUser.uid, currentUser.email)
-	}
+	// if (currentUser) {
+	// 	console.log(currentUser.uid, currentUser.email)
+	// }
 
 	// This allows user to log in with the email pw combo they created
 	async function logIn(email, password) {
@@ -48,7 +47,6 @@ export function UserAuth({ children }) {
 	// onAuthStateChanged returns the current user logged in
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
-			// console.log('Auth', currentuser);
 			setUser(currentuser);
 		});
 		// remove db auth state change listener when component dismounts
