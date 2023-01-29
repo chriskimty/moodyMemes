@@ -16,6 +16,14 @@
         font-size: clamp(1.875rem, 1.5127rem + 1.8116vw, 3.4375rem);
         letter-spacing: 3px;
         }
+        @include mobileLarge {
+            min-width: 350px;
+            max-width: 350px;
+        }
+        @include mobile {
+            min-width: 300px;
+            max-width: 300px;
+        }
     }
 } 
     
@@ -30,6 +38,9 @@
         min-width: 300px;
         font-size: 1.2rem;
         margin-bottom: 12px;
+        @include mobile {
+            min-width: 250px;
+        }
         &:focus {
             border: 2px solid black;
             outline: none;
@@ -43,9 +54,16 @@
 .googleBtn {
     @include flexDefault;
 }
+
 .divider {
     color: white;
     min-width: 350px;
+    @include mobileLarge {
+        min-width: 300px;
+    }
+    @include mobile {
+        min-width: 250px;
+    }
 }
 .loginOptions {
     @include flexDefault;

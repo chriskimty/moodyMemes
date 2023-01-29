@@ -26,6 +26,17 @@ const LandingPage = () => {
         }
     }
    
+    const [showEmail, setShowEmail] = useState(false);
+    const handleMouseEnter = (e) => {
+        e.preventDefault();
+        setShowEmail(true);
+    }
+
+    const handleMouseLeave = (e) => {
+        e.preventDefault();
+        setShowEmail(false);
+    }
+
     return (
         <section className="landingPage">
             <div className="wrapper">
@@ -40,14 +51,21 @@ const LandingPage = () => {
                             ?
                             <div className="dashboard loggedIn">
                                 <p className="userInfo"><i class="fa-solid fa-user"></i>{user.email}</p>
-                                <button onClick={handleLogOut}>Logout</button>
+                                <i class="fa-solid fa-user hiddenUntilMobile"
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                ></i>
+                                <button onClick={handleLogOut} className="altColorForMQ">Logout</button>
                                 {error && <p>{error}</p>}
                             </div>
                             : <div className="dashboard">
-                                <Link to='/login'>Login</Link>
+                                <Link to='/login' className="altColorForMQ">Login</Link>
                             </div>
                         }
-                        <Link to="/timeline">Timeline</Link>
+                        <Link to="/timeline" className="altColorForMQ">Timeline</Link>
+                    </div>
+                    <div className="hiddenEmail">
+                        {showEmail && <p>Logged in as {user.email}</p>}
                     </div>
                 </nav>
                 <GifContext.Provider value={gif}>

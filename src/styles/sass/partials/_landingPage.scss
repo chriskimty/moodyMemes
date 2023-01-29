@@ -8,24 +8,65 @@
         justify-content: space-evenly;
         align-items: center;
         margin-top: 30px;
+        @include mobileLarge {
+            flex-direction: column;
+            gap: 20px;
+        }
         .navLogo {
             width: 10%;
             min-width: 117px;
+            @include mobileLarge {
+                display: flex;
+                margin: 0 auto;
+                width: 35%;
+            }
         }
         .links {
             display: flex;
             flex-wrap: nowrap;
             justify-content: space-evenly;
             align-items: center;
+            @include mobileLarge {
+                background-color: white;
+                padding: 10px 20px;
+                border-radius: 15px;
+                box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+                border: 1px solid $secondaryColor;
+            }
+            .altColorForMQ:hover {
+                @include mobileLarge{
+                    color: black;
+                    text-shadow: $accentColor 2px 5px;
+                    font-weight: bold;
+                }
+            }
             .dashboard {
                 margin-right: 25px;
             }
+            
         }
     } 
 }
 
 .loggedIn {
     display: flex;
+    .hiddenUntilMobile {
+        display: none;
+        cursor: pointer;
+        background-color: $accentColor;
+        padding: 5px 10px;
+        border-radius: 50%;
+        border: 1px solid black;
+        &:hover {
+            background-color: black;
+            color: $accentColor;
+            border: 1px solid transparent
+        }
+        @include mobile {
+            display: flex;
+            align-items: center;  
+        }
+    }
     .userInfo {
         display: flex;
         flex-wrap: nowrap;
@@ -35,6 +76,9 @@
         border-radius: 25px;
         margin: 0 auto;
         font-size: 1rem;
+        @include mobile {
+            display: none;
+        }
         i {
             margin-right: 5px;
         }
@@ -46,4 +90,12 @@
         min-height: 10px;
         background: transparent;
     }
+}
+
+.hiddenEmail {
+    margin: 0px;
+    padding: 0px;
+    font-size: 1rem;
+    position: fixed;
+    top: 145px;
 }

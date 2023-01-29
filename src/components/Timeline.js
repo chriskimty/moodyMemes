@@ -12,8 +12,8 @@ const Timeline = (props) => {
     //State to save user's gif and info object into the timeline
     const [ timeline, setTimeline ] = useState([]);
     
-    const [deleteAlert, setDeleteAlert] = useState(false);
-    const [removeUID, setRemoveUID] = useState('');
+    const [ deleteAlert, setDeleteAlert ] = useState(false);
+    const [ removeUID, setRemoveUID ] = useState('');
     const [ nonUserWarning, setNonUserWarning ] = useState(false);
     const { currentUser } = useAuth();
     
@@ -27,7 +27,7 @@ const Timeline = (props) => {
             for (let key in data) {
                 newState.push({ key: key, name: data[key] })
             }
-            setTimeline(newState);
+            setTimeline(newState.reverse());
         })
     }, []);
     
@@ -54,7 +54,7 @@ const Timeline = (props) => {
             <div className="wrapper roundScroll">
                 <h2>Moody Timeline</h2>
                 <div className="timelineContainer">
-                    {timeline.reverse().map((result) => {
+                    {timeline.map((result) => {
                         return (
                             <div className="timelineItems"
                                 key={uuid()}>
@@ -73,7 +73,6 @@ const Timeline = (props) => {
                                         {result.name.uid === currentUser.uid
                                             ? <button onClick={(e) => {
                                                 e.preventDefault();
-                                                //figure out why the two below result in timeline re-rendering with un-reversed method of the map
                                                 setRemoveUID(result.key);
                                                 setDeleteAlert(true);
                                             }}>
@@ -88,12 +87,13 @@ const Timeline = (props) => {
                                         }
                                     </div>  
                                 </div>
-                                {deleteAlert && <ConfirmDelete setDeleteAlert={setDeleteAlert} handleRemoveMeme={handleRemoveMeme} removeUID={removeUID} />}
-                                
-                                {nonUserWarning && <Warning setNonUserWarning={setNonUserWarning} />}
                             </div>
                         )
                     })}
+
+                    {deleteAlert && <ConfirmDelete setDeleteAlert={setDeleteAlert} handleRemoveMeme={handleRemoveMeme} removeUID={removeUID} />}
+                                
+                    {nonUserWarning && <Warning setNonUserWarning={setNonUserWarning} />}
                 </div>
             </div>
             <div className="wrapper">

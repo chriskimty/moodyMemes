@@ -226,7 +226,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.212);
+  background-color: rgba(0, 0, 0, 0.57);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -239,6 +239,11 @@
         border-radius: 25px;
         position: absolute;
         color: $white;
+        @include flexDefault;
+        text-align: center;
+        @include mobileLarge {
+            max-width: 430px;
+        }
     }
 
     .controls {
