@@ -3,7 +3,6 @@
 
 .gif {
     background-color: $primaryColor;
-    
     h2 {
         font-weight: 300;
         text-align: center;
@@ -17,7 +16,6 @@
         justify-content: space-evenly;
         padding: 50px;
     }
-
     form {
         border: none;
     }
@@ -30,19 +28,18 @@
         @include mobile {
             margin-bottom: 100px;
         }
+
         @include mobileLarge {
             margin-bottom: 100px;
             margin-top: 50px;
             flex-direction: column;
         }
     }
-
     .select {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
-
     fieldset {
         border: none;
     }
@@ -62,19 +59,24 @@
         transition: all 0.1s ease 0.1s; 
         cursor: pointer;
         opacity: 0.7;
-        @include mobile {
-            background-size: 100px 100px;
-            max-height: 250px;
-            max-width: 250px;
-            }
-            &:hover {
-                filter: none;
-                opacity: 1.5;
-            }
-            &:checked {
-                opacity: 1.5;
-                box-shadow: 13px 13px 7px 0px rgba(0,0,0,0.75);
-                -webkit-box-shadow: 13px 13px 7px 0px rgba(0,0,0,0.75);
-            }
+
+    @include mobile {
+        background-size: 100px 100px;
+        max-height: 250px;
+        max-width: 250px;
         }
-    }  
+        &:hover {
+            filter: none;
+            opacity: 1.5;
+        }
+        &:focus {
+            filter: none;
+            opacity: 1.5;
+        }
+        &:checked {
+            opacity: 1.5;
+            box-shadow: 13px 13px 7px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 13px 13px 7px 0px rgba(0,0,0,0.75);
+        }
+    }
+}  

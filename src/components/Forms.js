@@ -1,7 +1,5 @@
 import { useContext } from "react";
 import { FormContext } from "./GiphyData";
-
-// Import components
 import LoadingPage from "./LoadingPage";
 
 const Forms = (props) => {

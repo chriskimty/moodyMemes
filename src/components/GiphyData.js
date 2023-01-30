@@ -1,10 +1,7 @@
 import { useState, createContext, useRef } from "react";
-
-// Import components
 import Forms from "./Forms";
 import Gif from "./Gif";
 
-// Exporting context
 export const ChoiceContext = createContext();
 export const FormContext = createContext();
 

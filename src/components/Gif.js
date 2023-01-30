@@ -2,8 +2,6 @@ import { useState, useContext } from "react";
 import uuid from "react-uuid";
 import { GifContext } from "./LandingPage";
 import { FormContext } from "./GiphyData";
-
-// Import components
 import Results from "./Results";
 
 const Gif = (props) => {

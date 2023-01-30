@@ -49,7 +49,7 @@ const SignUp = () => {
                         {loading && <LoadingPage/>}
                     </form>
                     <div className="loginOptions">
-                        <hr class="divider"/>
+                        <hr className="divider"/>
                         <p>Already have an account?</p>
                         <Link to='/login' className="button">Sign In</Link>
                     </div>

@@ -2,9 +2,9 @@ import firebaseConfig from '../firebase';
 import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { useAuth } from "../context/UserAuth";
 import uuid from "react-uuid";
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png';
-import { useAuth } from "../context/UserAuth";
 import ConfirmDelete from './ConfirmDelete';
 import Warning from './Warning';
 
@@ -31,10 +31,6 @@ const Timeline = (props) => {
         })
     }, []);
     
-    // 1. Only allow delete (func in Timeline) when uid of result matches the user uid that's logged in - DONE
-    // 2. Create a pop-up confirmation modal to verify delete - DONE
-    // 3. If user's uid doesn't match (i.e. user didn't create that result object), create a pop-up alert (use a library?) that tells them to log in to the correct account to delete - create another modal/component for this (style in the same way as confirmdelete)
-    // 3. Display brief text instructions in results object that tells the anon user that if they want to delete from timeline, they must sign up with an email account
     const handleRemoveMeme = (memeKey) => {
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database, `/${memeKey}`);

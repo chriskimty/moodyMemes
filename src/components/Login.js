@@ -1,10 +1,7 @@
-// component can look more like a modal with a close button on the top
-// create a separate component called sign up? but default view will be login
-
-import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import GoogleButton from "react-google-button";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/UserAuth";
+import GoogleButton from "react-google-button";
 import LoadingPage from './LoadingPage';
 
 const Login = () => {
@@ -77,7 +74,7 @@ const Login = () => {
                             type='dark'
                             onClick={handleGoogleSignIn}
                         />
-                        <hr class="divider"/>
+                        <hr className="divider"/>
                     </div>
                     <div className="loginOptions">
                         <p>Don't have an account?</p>

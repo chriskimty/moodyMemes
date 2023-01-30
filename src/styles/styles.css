@@ -526,7 +526,7 @@ footer .wrapper .creatives a:focus {
   }
 }
 @media (max-width: 680px) {
-  .landingPage nav .links .altColorForMQ:hover {
+  .landingPage nav .links .altColorForMQ:hover, .landingPage nav .links .altColorForMQ:focus {
     color: black;
     text-shadow: #EDD060 2px 5px;
     font-weight: bold;
@@ -548,6 +548,11 @@ footer .wrapper .creatives a:focus {
   border: 1px solid black;
 }
 .loggedIn .hiddenUntilMobile:hover {
+  background-color: black;
+  color: #EDD060;
+  border: 1px solid transparent;
+}
+.loggedIn .hiddenUntilMobile:focus {
   background-color: black;
   color: #EDD060;
   border: 1px solid transparent;
@@ -719,6 +724,10 @@ footer .wrapper .creatives a:focus {
   }
 }
 .gif .radio:hover {
+  filter: none;
+  opacity: 1.5;
+}
+.gif .radio:focus {
   filter: none;
   opacity: 1.5;
 }
@@ -1210,6 +1219,9 @@ footer .wrapper .creatives a:focus {
   transition: all 0.6s ease 0.2s;
 }
 .meetTheDevs .bioContainer .picContainer .overlayGif:hover {
+  opacity: 1;
+}
+.meetTheDevs .bioContainer .picContainer .overlayGif:focus {
   opacity: 1;
 }
 .meetTheDevs .bioContainer .bio {

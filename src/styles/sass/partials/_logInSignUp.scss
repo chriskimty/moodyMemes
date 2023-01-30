@@ -38,6 +38,7 @@
         min-width: 300px;
         font-size: 1.2rem;
         margin-bottom: 12px;
+
         @include mobile {
             min-width: 250px;
         }
@@ -58,13 +59,16 @@
 .divider {
     color: white;
     min-width: 350px;
+
     @include mobileLarge {
         min-width: 300px;
     }
+
     @include mobile {
         min-width: 250px;
     }
 }
+
 .loginOptions {
     @include flexDefault;
     margin-bottom: 25px;

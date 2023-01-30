@@ -6,7 +6,6 @@ footer {
     margin-bottom: 0px;
     padding-top: 5px;
     height: 10vh;
-//    position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
@@ -20,17 +19,13 @@ footer {
         justify-content: space-between;
         align-items: center;
         height: 100%;
-
         .creatives {
             color: $white;
-
             a {
                 color: $white;
-
                 &:hover {
                     color: $accentColor;
                 }
-
                 &:focus {
                     color: $accentColor;
                 }
@@ -42,6 +37,6 @@ footer {
         min-width: 90px;
         min-height: 25px;
         padding: 8px;
-    }
+        }
     }
 }
