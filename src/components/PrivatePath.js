@@ -11,7 +11,7 @@ const PrivatePath = ({ children }) => {
     if (!user) {
 		return <Navigate to='/' />;
 	} else {
-		//would return to homepage
+		//return to homepage
 		return children;
 	}
 }

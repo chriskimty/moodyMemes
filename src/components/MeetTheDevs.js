@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/UserAuth";
 import brittPhoto from "../assets/brittsPic.jpg";
 import brittGif from "../assets/excitedGirlGif.webp";
 import chrisPhoto from "../assets/chrisPic.jpg";
@@ -9,13 +10,19 @@ import KwameGif from "../assets/kwameGif.gif";
 import danielPic from "../assets/daniel.jpg";
 
 const MeetTheDevs = () => {
+  const { user } = useAuth();
   return (
     <section className="meetTheDevs">
       <div className="wrapper meetDevsContent">
         <div className="linkBox">
-          <Link className="backLink" to="/home">
-            <i class="fa-solid fa-hand-point-left"></i>Back
-          </Link>
+          {user
+            ? <Link className="backLink" to="/home">
+                <i className="fa-solid fa-hand-point-left"></i>Home
+              </Link>
+            : <Link className="backLink" to="/">
+                <i className="fa-solid fa-hand-point-left"></i>Main
+              </Link>
+        }
         </div>
         <h2>Meet The Team</h2>
         <ul className="bioContainer">
@@ -52,7 +59,7 @@ const MeetTheDevs = () => {
                   <i className="fa-brands fa-linkedin"></i>
                 </a>
                 <a
-                  class="link"
+                  className="link"
                   href="https://github.com/BrittFreitas"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -60,7 +67,7 @@ const MeetTheDevs = () => {
                   <i className="fa-brands fa-github"></i>
                 </a>
                 <a
-                  class="link"
+                  className="link"
                   href="https://www.brittanyfreitas.com/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -78,8 +85,7 @@ const MeetTheDevs = () => {
                   alt="person smiling with a cat beside them"
                 />
                 <img
-                  className="overlayGif"
-                  clasName="overlay"
+                  className="overlayGif overlay"
                   src={chrisGifFinal}
                   alt="dog typing on computer while laying down"
                 />
@@ -103,7 +109,7 @@ const MeetTheDevs = () => {
                   <i className="fa-brands fa-linkedin"></i>
                 </a>
                 <a
-                  class="link"
+                  className="link"
                   href="https://github.com/chriskimty"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -111,7 +117,7 @@ const MeetTheDevs = () => {
                   <i className="fa-brands fa-github"></i>
                 </a>
                 <a
-                  class="link"
+                  className="link"
                   href="https://chriskim.dev/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -155,7 +161,7 @@ const MeetTheDevs = () => {
                     <i className="fa-brands fa-linkedin"></i>
                   </a>
                   <a
-                    class="link"
+                    className="link"
                     href="https://github.com/dbutch25"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -163,7 +169,7 @@ const MeetTheDevs = () => {
                     <i className="fa-brands fa-github"></i>
                   </a>
                   <a
-                    class="link"
+                    className="link"
                     href="http://www.danielbutcher.ca/"
                     target="_blank"
                     rel="noopener noreferrer"

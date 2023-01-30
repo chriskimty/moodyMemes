@@ -2,11 +2,8 @@ import { useState, createContext } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 import { useAuth } from "../context/UserAuth";
-
-// Import components
 import GiphyData from "./GiphyData";
 
-// Exporting context
 export const GifContext = createContext();
 
 const LandingPage = () => {
@@ -50,8 +47,8 @@ const LandingPage = () => {
                         {user.email !== null
                             ?
                             <div className="dashboard loggedIn">
-                                <p className="userInfo"><i class="fa-solid fa-user"></i>{user.email}</p>
-                                <i class="fa-solid fa-user hiddenUntilMobile"
+                                <p className="userInfo"><i className="fa-solid fa-user"></i>{user.email}</p>
+                                <i className="fa-solid fa-user hiddenUntilMobile"
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
                                 ></i>

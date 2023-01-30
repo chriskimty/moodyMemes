@@ -3,35 +3,27 @@
 @use "./mixins" as *;
 
 .meetTheDevs {
-    min-height: 110vh;
-
-    .socials {
-        font-size: 2rem;
-    }
-  
+  min-height: 110vh;
   background-color: rgb(235, 235, 235);
-
-    li.bio {
-        margin-bottom: 10px;
-        min-height: 65vh;
-    }
-
+  .socials {
+    font-size: 2rem;
+  }
+  li.bio {
+      margin-bottom: 10px;
+      min-height: 65vh;
+  }
   .linkBox {
     padding-top: 75px;
-
     i {
         font-size: 2rem;
       &:hover {
         color: #252630;
       }
-
       &:focus {
         color: #252630;
-      }
-      
+      }   
     }
   }
-
   h2 {
     margin: 0;
     padding: 50px 0px;
@@ -39,17 +31,14 @@
     justify-content: center;
     font-size: clamp(2.25rem, -1.0938rem + 7.5vw, 3.125rem);
   }
-
   h3 {
     margin: 5px;
     font-size: clamp(1rem, 0.125rem + 2vw, 1.25rem);
   }
-
   i {
     margin-right: 10px;
     color: $tertiaryColor;
   }
-
   .bioContainer {
     display: flex;
     margin: 0;
@@ -57,19 +46,16 @@
     @include tablet {
       flex-direction: column;
       gap: 10px;
-
       .bottomRow {
         margin-left: 10px;
       }
     }
-
     .topRow,
     .bottomRow {
       display: flex;
       justify-content: space-evenly;
       width: fit-content;
       gap: 10px;
-  
 
       @include tablet {
         justify-content: center;
@@ -84,11 +70,9 @@
         margin-left: 0px;
       }
     }
-
     p {
         font-size: clamp(0.95rem, 0.4375rem + 1vw, 1rem);
     }
-
     img {
       width: 59%;
       border-radius: 50%;
@@ -106,12 +90,10 @@
     .picContainer {
         position: relative;
         width: 60%;
-
         .profile {
             display: block;
             width: 100%;
         }
-
         .overlayGif {
             position: absolute;
             top : 0;
@@ -120,14 +102,15 @@
             height: 100%;
             opacity: 0;
             transition: all 0.6s ease 0.2s; 
-
             &:hover {
             opacity: 1;
-      }
+            }
+            &:focus {
+            opacity: 1;
+            }
         }
     }
 
-   
     .bio {
       width: 45%;
       padding: 5px 20px;
